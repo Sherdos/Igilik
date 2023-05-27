@@ -1,10 +1,10 @@
-from rest_framework import generics, viewsets
+from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from .permissions import IsServiceUserOrReadOnly
-from .serialaizers import SerializerService
-from .models import Service,Media
+from .serialaizers import SerializerService, SerializerOrder
+from .models import Service,Media, Order
 
 # Create your views here.
 class ServiceViewSet(viewsets.ModelViewSet):
@@ -40,3 +40,11 @@ class ServiceViewSet(viewsets.ModelViewSet):
         for i in images:
             images_list.append(i.image.url)
         return Response({'images':images_list})
+    
+
+
+
+
+class OrderViewSet(viewsets.ModelViewSet):
+    serializer_class = SerializerOrder
+    queryset = Order.objects.all()
