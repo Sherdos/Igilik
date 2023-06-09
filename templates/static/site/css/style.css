@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+   padding: 20px;
+}
+
+header ul {
+    display: flex;
+    column-gap: 20px;
+    
+}
+
+header li {
+    list-style: none;
+}
+
+.baner {
+    width: 700px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.baner h1, p,  button,form,input {
+    padding: 10px;
+}
+
+.services {
+    display: flex;
+}
+
+.cards {
+    max-width: 70%;
+    display: inline-block;
+    padding: 10px;
+}
+
+.card {
+    height: 200px;
+    display: flex;
+    width: 1000px;
+    border: solid 1q rgb(174, 163, 163);
+}
+
+.crad-body {    
+    padding: 20px;
+
+}
+.card-img img {
+    height: 100px;
+    padding: 10px;
+}
+
+.categories {
+    max-width: 30%;
+}
+
+.categories-list {
+    list-style: none;
+}
+
+.categories-list li {
+    padding: 5px;
+}

@@ -1,0 +1,59 @@
+{% extends "site/homepage.html" %}
+
+{% block content %}
+
+<div class="baner">
+    <h1>Освободим вас от забот</h1>
+    <p>Поможем найти надёжного исполнителя для любых задач</p>
+
+    <form action="{% url 'search' %}" method="get">
+        <input type="text" name="key">
+        <button>Заказать услугу</button>
+    </form>
+    <p>Например,<a href="">вскрытие маленьких навесных замков</a></p>
+    
+    <button>Стать исполнителем и начать зарабатывать</button>
+</div>
+
+<div class="services">
+    <div class="cards">
+        
+        {% for service in services %}    
+        <div class="card">
+            <div class="card-img">
+                <img src="https://d4u83ieo3jbjg.cloudfront.net/media/cms/step/what-is-service-icon3_c.png" alt="">
+            </div>
+            <div class="crad-body">
+                <h1>{{service.title}}</h1>
+                <p>{{service.description|truncatechars:150}}</p>
+                <button>Узнать больше</button>
+            </div>
+        </div>
+        {% endfor %}
+            
+    </div>
+
+    <div class="categories">
+        <form action="" method="post">
+            {% csrf_token %}
+            <ul class="categories-list">
+                <li>
+                    <input type="checkbox" id="all-categories" onClick="toggle(this)">
+                    Все категории
+                </li>
+                {% for category  in categories %}
+                
+                <li>
+                    <input type="checkbox" name="category" onclick="n()" value="{{category.id}}">
+                    {{category.name}}
+                </li>
+                {% endfor %}
+            </ul>
+            <button>Приметить</button>
+        </form>
+            
+    </div>
+</div>
+
+
+{% endblock content %}

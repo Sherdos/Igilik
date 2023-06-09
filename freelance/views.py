@@ -12,38 +12,18 @@ class ServiceViewSet(viewsets.ModelViewSet):
     permission_classes=(IsServiceUserOrReadOnly,)
     
    
+    def create(self, request, *args, **kwargs):
+        images =request.data['images']
+        del request.data['images']
+        model=super().create(request, *args, **kwargs)
+        return model
+    
     def get_queryset(self):
         pk = self.kwargs.get('pk')
         if not pk:
             return Service.objects.all()[:2]
         return Service.objects.filter(pk=pk)
     
-    def create(self, request, *args, **kwargs):
-        images =request.data['images']
-        del request.data['images']
-        model=super().create(request, *args, **kwargs)
-        service = Service.objects.get(id=model.data['id'])
-        media = Media.objects.create(obj_id = service.id, image = images)
-        return model
-    
-    
-    
-    @action(methods=['get'], detail=True)
-    def user(self, request, pk = None):
-        service = Service.objects.get(pk=pk)
-        return Response({'users':service.user.username})
-    
-    @action(methods=['get'], detail=True)
-    def image(self, request, pk = None):
-        images = Media.objects.filter(service_id=pk)
-        images_list = []
-        for i in images:
-            images_list.append(i.image.url)
-        return Response({'images':images_list})
-    
-
-
-
 
 class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = SerializerOrder
