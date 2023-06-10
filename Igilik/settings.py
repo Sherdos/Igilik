@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # additional library
+    'django_sass',
     'rest_framework',
     'corsheaders',
     'rest_framework.authtoken',

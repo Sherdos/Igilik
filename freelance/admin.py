@@ -6,6 +6,6 @@ from .models import *
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields={'slug':('name',)}
 
-admin.site.register(Service)
+admin.site.register(Order)
 admin.site.register(Media)
 admin.site.register(Category,CategoryAdmin)

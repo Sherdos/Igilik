@@ -11,15 +11,17 @@
 <body>
     <header>
         <ul>
-            <li> <img src="" alt=""> </li>
+            <li> <img src="{% static 'site/logo.png' %}" alt=""> </li>
             <li> <a href="">Создать задание</a></li>
-            <li> <a href="">Найти задания</a></li>
+            <li> <a href="{% url 'services' %}">Найти задания</a></li>
             <li> <a href="">Войти</a></li>
         </ul>
     </header>
-    {% block content %}
-    
-    {% endblock content %}
+    <div class="container">
+        {% block content %}
+        
+        {% endblock content %}
+    </div>
     <script src="{% static 'site/js/main.js' %}" ></script>
 </body>
 </html>
