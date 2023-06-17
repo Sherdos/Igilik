@@ -11,9 +11,9 @@
 <body>
     <header>
         <ul>
-            <li> <img src="{% static 'site/logo.png' %}" alt=""> </li>
+            <li> <a href="{% url 'index' %}"><img src="{% static 'site/logo.png' %}" alt=""> </a></li>
             <li> <a href="">Создать задание</a></li>
-            <li> <a href="{% url 'services' %}">Найти задания</a></li>
+            <li> <a href="{% url 'orders' %}">Найти задания</a></li>
             <li> <a href="">Войти</a></li>
         </ul>
     </header>

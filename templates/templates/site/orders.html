@@ -1,0 +1,60 @@
+{% extends "site/homepage.html" %}
+
+{% block content %}
+<div class="search">
+    <h1>Все задания</h1>
+    <br>
+    <form action="{% url 'search' %}" method="get">
+        <input class="bor-base" type="text" name="key">
+        <button class="bor-base">Заказать услугу</button>
+    </form>
+    <br>
+    <p>Найдено {{orders.count}} заданий</p>
+    
+    <!-- <button>Стать исполнителем и начать зарабатывать</button> -->
+</div>
+<div class="services">
+    <div class="cards">
+        
+        {% for order in orders %}    
+        <div class="card">
+            <div class="card-img">
+                <img src="https://d4u83ieo3jbjg.cloudfront.net/media/cms/step/what-is-service-icon3_c.png" alt="">
+            </div>
+            <div class="card-body">
+                
+                <h1>{{order.title}}</h1>
+                <p>{{order.description|truncatechars:150}}</p>
+                <span>{{order.category.name}}</span>
+            </div>
+            <div class="card-add-info">
+                <p>{{order.user.username}}</p>
+            </div>
+        </div>
+        {% endfor %}
+            
+    </div>
+
+    <div class="categories">
+        <form action="" method="post">
+            {% csrf_token %}
+            <ul class="categories-list">
+                <li>
+                    <input type="checkbox" id="all-categories" onClick="toggle(this)">
+                    Все категории
+                </li>
+                {% for category  in categories %}
+                
+                <li>
+                    <input type="checkbox" name="category" onclick="n()" value="{{category.id}}">
+                    {{category.name}}
+                </li>
+                {% endfor %}
+            </ul>
+            <button>Приметить</button>
+        </form>
+            
+    </div>
+</div>
+
+{% endblock content %}

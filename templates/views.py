@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from freelance.models import Service, Category, Order
+from freelance.models import Category, Order
 
 # Create your views here
 
@@ -11,10 +11,10 @@ def index(request):
     }
     return render(request,template_name,context)
 
-def services(request):
+def orders(request):
     orders=Order.objects.all()
     categories = Category.objects.all()
-    template_name = 'site/services.html'
+    template_name = 'site/orders.html'
     context = {
         'orders':orders,
         'categories':categories
@@ -23,10 +23,14 @@ def services(request):
 
 def search(request):
     key_word = request.GET.get('key')
-    template_name = 'site/services.html'
+    template_name = 'site/orders.html'
     if key_word:
         orders=Order.objects.filter(title__icontains = key_word)
+    else:
+        orders = Order.objects.all()
+    categories = Category.objects.all()
     context = {
-        'orders':orders
+        'orders':orders,
+        'categories':categories,
     }
     return render(request,template_name,context)

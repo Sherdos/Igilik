@@ -1,3 +1,10 @@
+:root {
+  --col_base:rgb(19, 75, 205);
+  --color:white;
+  --box-shadown:4px 4px 35px 0px rgba(34, 60, 80, 0.2);
+}
+
+
 * {
   padding: 0;
   margin: 0;
@@ -57,12 +64,22 @@ header img {
   border: solid 1q #aea3a3;
 }
 
-.crad-body {
-  padding: 20px;
+.card-body {
+  max-width: 70%;
+  width: 100%;
 }
 
-.crad-body * {
+.card-body * {
   padding: 10px;
+}
+
+.card-body span {
+  color: var(--col_base);
+}
+
+.card-add-info{
+  max-width: 15%;
+  width: 100%;
 }
 
 .card-img img {
@@ -87,14 +104,15 @@ header img {
   padding: 10px;
   width: 500px;
   height: 50px;
+  outline: none;
   border: none;
   border-radius: 10px;
-  box-shadow: 4px 4px 35px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: var(--box-shadown)
 }
 
 .search button {
   padding: 20px;
-  background-color: #134bcd;
+  background-color: var(--col_base);
   border: none;
   color: white;
   border-radius: 50px;

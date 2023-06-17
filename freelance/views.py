@@ -4,7 +4,7 @@ from rest_framework.response import Response
 
 from .permissions import IsServiceUserOrReadOnly
 from .serialaizers import SerializerService, SerializerOrder
-from .models import Service,Media, Order
+from .models import Service, Order
 
 # Create your views here.
 class ServiceViewSet(viewsets.ModelViewSet):
