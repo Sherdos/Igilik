@@ -18,7 +18,7 @@ class Service(models.Model):
 class Order(models.Model):
     title = models.CharField("Название заказа", max_length=50)
     description = models.TextField('Описание заказа')
-    category = models.ForeignKey("freelance.Category", verbose_name='Категория', on_delete=models.PROTECT)
+    category = models.ForeignKey("freelance.Subcategory", verbose_name='Категория', on_delete=models.PROTECT)
     price = models.IntegerField('цена')
     start = models.DateTimeField('Начать',null=True)
     finish = models.DateTimeField('Завершить', null=True)
@@ -48,7 +48,7 @@ class Category(models.Model):
 class Subcategory(models.Model):
     name = models.CharField("Название подкатегории", max_length=50)
     slug = models.SlugField('Url')
-    category = models.ForeignKey((Описаниеn_delete=models.CASCADE, verbose_name='Нкатегория')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE,)
 
 
 
@@ -60,7 +60,7 @@ class Subcategory(models.Model):
         return f'{self.name}'
 
 
-class ProfileUser(models):
+class ProfileUser(models.Model):
     profile_img = models.ImageField('фото',upload_to='users/profile/')
     completed_tasks = models.IntegerField('выполненные задачи')
     create_tasks = models.IntegerField('созданные задачи')

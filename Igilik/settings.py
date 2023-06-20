@@ -40,11 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # additional library
-    'django_sass',
     'rest_framework',
     'corsheaders',
-    'rest_framework.authtoken',
-    'djoser',
+
     # apps of project
     'freelance.apps.FreelanceConfig',
     'templates',
@@ -165,9 +163,9 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
     
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',    
-        'rest_framework.authentication.BasicAuthentication',    
-        'rest_framework.authentication.SessionAuthentication',    
-    ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework.authentication.TokenAuthentication',    
+    #     'rest_framework.authentication.BasicAuthentication',    
+    #     'rest_framework.authentication.SessionAuthentication',    
+    # ),
 }
