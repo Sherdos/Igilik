@@ -1,0 +1,17 @@
+{% extends "site/homepage.html" %}
+
+{% block content %}
+    <div class="title-categories">
+        <h1>Выберите категорию задания</h1>
+        <p>Мы готовы помочь вам в решении самых разнообразных задач</p>
+    </div>
+    <div class="cards">
+        
+        {% for item in categories %}    
+            <div class="card">
+                <p>{{item.name}}</p>
+            </div>
+        {% endfor %}
+            
+    </div>
+{% endblock content %}

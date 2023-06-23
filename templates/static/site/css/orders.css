@@ -1,0 +1,75 @@
+.search input {
+    padding: 10px;
+    width: 500px;
+    height: 50px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    box-shadow: var(--box-shadown)
+  }
+  
+  .search button {
+    padding: 20px;
+    background-color: var(--col_base);
+    border: none;
+    color: white;
+    border-radius: 50px;
+    position: absolute;
+    left: 480px;
+    top: 153px;
+  }
+  
+
+.services {
+    display: flex;
+}
+  
+.cards {
+    max-width: 70%;
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+  }
+
+  .card {
+    height: 200px;
+    display: flex;
+    width: 100%;
+    border: solid 1q #aea3a3;
+  }
+  
+  .card-body {
+    max-width: 70%;
+    width: 100%;
+  }
+  
+  .card-body * {
+    padding: 10px;
+  }
+  
+  .card-body span {
+    color: var(--col_base);
+  }
+
+  .card-add-info{
+    max-width: 15%;
+    width: 100%;
+  }
+  
+  .card-img img {
+    height: 100px;
+    padding: 10px;
+  }
+  
+  /* .categories {
+    max-width: 30%;
+    width: 100%;
+  } */
+  
+  .categories-list {
+    list-style: none;
+  }
+  
+  .categories-list li {
+    padding: 5px;
+  }

@@ -1,0 +1,28 @@
+@import url(./style.css);
+
+/* 
+.categories-choose{
+
+} */
+
+.categories-info{
+    text-align: center;
+    font-size: small;
+  }
+  
+  .categories-cards{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .category {
+    padding: 20px;
+    text-decoration: none;
+    width: 28%;
+  }
+  
+  .category a {
+    color: black;
+  
+  }

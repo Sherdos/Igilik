@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -43,6 +44,9 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категорию'
         verbose_name_plural = 'Категории'
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'id': self.pk})
         
 
 class Subcategory(models.Model):

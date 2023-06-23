@@ -1,5 +1,8 @@
 {% extends "site/homepage.html" %}
-
+{% load static %}
+{% block css %}
+        <link rel="stylesheet" href="{% static 'site/css/index.css' %}">
+{% endblock css %}
 {% block content %}
 
 <div class="baner">
@@ -13,6 +16,19 @@
     <p>Например,<a href="">вскрытие маленьких навесных замков</a></p>
     
     <button>Стать исполнителем и начать зарабатывать</button>
+</div>
+<div class="info">
+    <h1>Более 3 500 000 исполнителей по всей России</h1>
+    <p>с честными отзывами в категориях:</p>
+</div>   
+<div class="categories">
+    
+    {% for category in categories %}    
+    <div class="category">
+        <a href="{{category.get_absolute_url}}">{{category.name}}</a>
+    </div>
+    {% endfor %}
+        
 </div>
 
 

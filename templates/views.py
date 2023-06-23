@@ -6,8 +6,9 @@ from freelance.models import Category, Order
 
 def index(request):
     template_name = 'site/index.html'
+    categories = Category.objects.all()
     context = {
-
+        'categories':categories
     }
     return render(request,template_name,context)
 
@@ -31,6 +32,16 @@ def search(request):
     categories = Category.objects.all()
     context = {
         'orders':orders,
+        'categories':categories,
+    }
+    return render(request,template_name,context)
+
+def category_view(request, id):
+    template_name = 'site/category.html'
+    categories = Category.objects.all()
+    category = Category.objects.get(id=id)
+    context = {
+        'category':category,
         'categories':categories,
     }
     return render(request,template_name,context)
