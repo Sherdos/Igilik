@@ -52,7 +52,7 @@ class Category(models.Model):
 class Subcategory(models.Model):
     name = models.CharField("Название подкатегории", max_length=50)
     slug = models.SlugField('Url')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE,)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='selfcategory')
 
 
 

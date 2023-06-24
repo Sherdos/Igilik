@@ -1,10 +1,13 @@
 {% extends "site/homepage.html" %}
-
+{% load static %}
+{% block css %}
+        <link rel="stylesheet" href="{% static 'site/css/orders.css' %}">
+{% endblock css %}
 {% block content %}
 <div class="search">
     <h1>Все задания</h1>
     <br>
-    <form action="{% url 'search' %}" method="get">
+    <form  method="get">
         <input class="bor-base" type="text" name="key">
         <button class="bor-base">Заказать услугу</button>
     </form>
@@ -17,6 +20,8 @@
     <div class="cards">
         
         {% for order in orders %}    
+        
+        
         <div class="card">
             <div class="card-img">
                 <img src="https://d4u83ieo3jbjg.cloudfront.net/media/cms/step/what-is-service-icon3_c.png" alt="">
@@ -45,10 +50,29 @@
                 </li>
                 {% for category  in categories %}
                 
-                <li>
-                    <input type="checkbox" name="category" onclick="n()" value="{{category.id}}">
-                    {{category.name}}
-                </li>
+                {% if category.id in active_categories %}
+                    <li>
+                        <input type="checkbox" checked='true' name="category" onclick="n()" value="{{category.id}}">
+                        {{category.name}}
+                        {{category.id}}
+                    </li>
+                {% else %}
+                    <li>
+                        <input type="checkbox"  id="category{{forloop.counter}}" name="category" onclick="n(this)" value="{{category.id}}">
+                        {{category.name}}
+                        <ul class="subcategories">
+                            {% for subcategory in  category.selfcategory.all %}
+                                <li>
+                                    <input type="checkbox" onclick="subn(this)" class="subcategory{{category.id}}" name="subcategory"  value="{{subcategory.id}}"> 
+                                        {{subcategory.name}}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                                
+                        </select>
+                    </li>
+                {% endif %}
+                    
                 {% endfor %}
             </ul>
             <button>Приметить</button>

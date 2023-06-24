@@ -13,28 +13,24 @@ def index(request):
     return render(request,template_name,context)
 
 def orders(request):
+    template_name = 'site/orders.html'
     orders=Order.objects.all()
     categories = Category.objects.all()
-    template_name = 'site/orders.html'
-    context = {
-        'orders':orders,
-        'categories':categories
-    }
-    return render(request,template_name,context)
-
-def search(request):
+    active_categories = request.POST.getlist('category')
+    active_categories = list(map(int, active_categories))
     key_word = request.GET.get('key')
-    template_name = 'site/orders.html'
     if key_word:
         orders=Order.objects.filter(title__icontains = key_word)
-    else:
-        orders = Order.objects.all()
-    categories = Category.objects.all()
+
+
+        
     context = {
         'orders':orders,
         'categories':categories,
+        'active_categories':active_categories
     }
     return render(request,template_name,context)
+
 
 def category_view(request, id):
     template_name = 'site/category.html'
@@ -42,6 +38,14 @@ def category_view(request, id):
     category = Category.objects.get(id=id)
     context = {
         'category':category,
+        'categories':categories,
+    }
+    return render(request,template_name,context)
+
+def category_filter(request):
+    template_name = 'site/category.html'
+    categories = request.POST.get('categories')
+    context = {
         'categories':categories,
     }
     return render(request,template_name,context)
