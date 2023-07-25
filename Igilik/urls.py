@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 # api urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
+    path('', include('base_site.urls')),
     path('api/', include('freelance.urls')),
 ]
  
@@ -16,9 +16,3 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
-
-# frontend urls
-urlpatterns += [
-    path('', include('templates.urls'))
-    
-]

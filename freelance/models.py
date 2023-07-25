@@ -2,19 +2,6 @@ from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
 
-class Service(models.Model):
-    title = models.CharField('Название услуги', max_length=100)
-    description = models.TextField('Описание услуги')
-    catergory = models.ForeignKey("freelance.Category", verbose_name='категория', on_delete=models.PROTECT)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_service', verbose_name='Продавец')
-    
-    
-    def __str__(self):
-        return self.title
-    
-    class Meta:
-        verbose_name = 'Услугу'
-        verbose_name_plural = 'Услуги'
 
 class Order(models.Model):
     title = models.CharField("Название заказа", max_length=50)
