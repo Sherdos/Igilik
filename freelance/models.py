@@ -22,7 +22,9 @@ class Order(models.Model):
 
 class Category(models.Model):
     name = models.CharField("Название категории", max_length=50)
+    description = models.TextField('Описание каткгории', null=True)
     slug = models.SlugField('Url')
+    image = models.ImageField('Фото', upload_to='category/')
     
     def __str__(self):
         return self.name
